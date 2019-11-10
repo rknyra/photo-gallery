@@ -4,7 +4,7 @@ import datetime as dt
 
 #views
 def home(request):
-    return HttpResponse('Welcome to my photogallery')
+    return render(request, 'home.html')
 
 
 def photos_of_day(request):
