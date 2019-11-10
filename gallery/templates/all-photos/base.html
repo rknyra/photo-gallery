@@ -23,18 +23,19 @@
 
     {% block content %}
     
-    {% for photo in photos %}
+    
      <div class='container'>
         <h1 class='text-center'> Photo gallery for {{date|date:"l d-F Y"}}</h1>
         <div class='row d-inline-flex'>
-         
+        {% for photo in photos %}
             <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                <img src='{{ photo.image.url }}' class='img-responsive' alt='Image'>
+                <img src='{{ photo.image.url }}' class='img-thumbnail photo' alt='Image'>
             </div>
+        {% endfor %}
 
         </div>
     </div>
-    {% endfor %}
+  
 
     {% endblock %}
 
