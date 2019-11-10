@@ -31,3 +31,16 @@ def convert_dates(dates):
     day = days[day_number]
     
     return day
+
+def past_days_photos(request,past_date):
+    #convert data from the string url
+    date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
+    day = convert_dates(date)
+    html = f'''
+        <html>
+            <body> 
+                <h1> Photos for {day} {date.day}-{date.month}-{date.year}</h1>
+            </body>
+        </html>
+        '''
+    return HttpResponse(html)
