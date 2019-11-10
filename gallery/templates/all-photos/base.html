@@ -22,17 +22,19 @@
     {% include 'navbar.html' %}
 
     {% block content %}
-              
+    
+    {% for photo in photos %}
      <div class='container'>
         <h1 class='text-center'> Photo gallery for {{date|date:"l d-F Y"}}</h1>
         <div class='row d-inline-flex'>
          
             <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-            photos to be placed here... one outta 4 columns looped over as photos are added
+                <img src='{{ photo.image.url }}' class='img-responsive' alt='Image'>
             </div>
 
         </div>
     </div>
+    {% endfor %}
 
     {% endblock %}
 

@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse,Http404
 import datetime as dt
+from .models import Image, Location, Category
 
 #views
 def home(request):
     date = dt.date.today()
+    photos = Image.objects.all()
 
-    return render(request, 'all-photos/home.html', {'date':date,})
+    return render(request, 'all-photos/home.html', {'date':date, 'photos':photos})
 
 
 def photos_of_day(request):

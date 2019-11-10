@@ -36,9 +36,6 @@ class Image(models.Model):
         photos = cls.objects.filter(pub_date__date = date)
         return photos
     
-    def __str__(self):
-        return self.image
-    
     def save_image(self):
         self.save()
     
