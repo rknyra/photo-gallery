@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 import datetime as dt
 
 #views
@@ -33,8 +33,14 @@ def convert_dates(dates):
     return day
 
 def past_days_photos(request,past_date):
-    #convert data from the string url
-    date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
+    
+    try:
+        #convert data from the string url
+        date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
+    except ValueError:
+        #raise error 404 when ValueError is thrown
+        raise Http404
+    
     day = convert_dates(date)
     html = f'''
         <html>
