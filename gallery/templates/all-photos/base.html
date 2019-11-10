@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    {% if title %}
+    <title> photo gallery - {{title}} </title>
+    {% else %}
+    <title> photo gallery </title>
+    {% endif  %}
+</head> 
+
+<body>
+    {% block content %}
+        <h1> Photo gallery for {{date|date:"l d-F Y"}}</h1>
+       
+     <div class='container'>
+        <div class='row d-inline-flex'>
+
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
+            photos to be placed here... one outta 4 columns looped over as photos are added
+            </div>
+
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+</html>

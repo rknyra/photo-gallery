@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse,Http404
 import datetime as dt
 
 #views
 def home(request):
-    return render(request, 'home.html')
+    date = dt.date.today()
+
+    return render(request, 'all-photos/home.html', {'date':date,})
 
 
 def photos_of_day(request):
@@ -12,14 +14,9 @@ def photos_of_day(request):
     
     #function to convert date object to find the exact day
     day = convert_dates(date)
-    html = f'''
-    <html>
-        <body>
-            <h1>Photos for {day} {date.day}-{date.month}-{date.year}</h1>
-        </body>
-    </html>
-    '''
-    return HttpResponse(html)
+  
+    return render(request, 'all-photos/home.html', {'date':date,})
+
 
 def convert_dates(dates):
     #function that gets the weekday number for a given date
@@ -32,6 +29,7 @@ def convert_dates(dates):
     
     return day
 
+#view function to present photos from past-days
 def past_days_photos(request,past_date):
     
     try:
@@ -39,14 +37,10 @@ def past_days_photos(request,past_date):
         date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
     except ValueError:
         #raise error 404 when ValueError is thrown
-        raise Http404
+        raise Http404()
+        assert False
     
     day = convert_dates(date)
-    html = f'''
-        <html>
-            <body> 
-                <h1> Photos for {day} {date.day}-{date.month}-{date.year}</h1>
-            </body>
-        </html>
-        '''
-    return HttpResponse(html)
+    if date == dt.date.today():
+       return redirect(photos_of_day)
+    return render(request, 'all-photos/past-photos.html', {'date':date})
