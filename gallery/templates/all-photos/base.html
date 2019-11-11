@@ -6,9 +6,9 @@
     <meta charset='utf-8'>
 
     {% if title %}
-    <title> photo gallery - {{title}} </title>
+    <title> la galerie photo - {{title}} </title>
     {% else %}
-    <title> photo gallery </title>
+    <title> la galerie photo </title>
     {% endif  %}
 
     {% block styles %}
@@ -27,7 +27,7 @@
     
     
      <div class='container'>
-        <h1 class='text-center'> Photo gallery for {{date|date:"l d-F Y"}}</h1>
+        <h1 class='text-center'> Ma Galerie </h1>
         <div class='row'>
         {% for photo in photos %}
             <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>

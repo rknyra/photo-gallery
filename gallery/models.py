@@ -8,6 +8,13 @@ class Category(models.Model):
     
     def __str__(self):
         return self.category
+    
+    def save_category(self):
+        self.save()
+    
+    @classmethod
+    def delete_category(cls,category):
+        cls.objects.filter(category=category).delete()
 
 #Location Model
 class Location(models.Model):
@@ -15,6 +22,14 @@ class Location(models.Model):
     
     def __str__(self):
         return self.location
+    
+    def save_locaton(self):
+        self.save()
+    
+    @classmethod
+    def delete_location(cls,location):
+        cls.objects.filter(location=location).delete()
+        
 
 #Image Model
 class Image(models.Model):
@@ -25,16 +40,16 @@ class Image(models.Model):
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
     
-    @classmethod
-    def today_photos(cls):
-        today = dt.date.today()
-        photos = cls.objects.filter(post_date__date = today)
-        return photos
+    # @classmethod
+    # def today_photos(cls):
+    #     today = dt.date.today()
+    #     photos = cls.objects.filter(post_date__date = today)
+    #     return photos
     
-    @classmethod
-    def days_photos(cls,date):
-        photos = cls.objects.filter(pub_date__date = date)
-        return photos
+    # @classmethod
+    # def days_photos(cls,date):
+    #     photos = cls.objects.filter(pub_date__date = date)
+    #     return photos
     
     @classmethod
     def search_by_category(cls,search_term):
