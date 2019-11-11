@@ -16,7 +16,8 @@
   {% if photos %}
     {% for photo in photos %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{photo.name}}</h1>
+          <p>{{photo.name}}</p>
+          <img src="{{photo.image.url}}" class='img-thumbnail photo'>
       </div>
 
     {% endfor %}

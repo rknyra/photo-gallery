@@ -50,8 +50,8 @@ def past_days_photos(request,past_date):
 
 def search_results(request):
     
-    if 'photo' in request.GET and request.GET["photo"]:
-        search_term = request.GET.get("photo")
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
         searched_photos = Image.search_by_category(search_term)
         message = f"{search_term}"
 
