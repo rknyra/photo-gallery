@@ -28,14 +28,45 @@
     
      <div class='container'>
         <h1 class='text-center'> Photo gallery for {{date|date:"l d-F Y"}}</h1>
-        <div class='row d-inline-flex'>
+        <div class='row'>
         {% for photo in photos %}
             <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                <img src='{{ photo.image.url }}' class='img-thumbnail photo' alt='Image'>
+                <img src='{{ photo.image.url }}' class='img-thumbnail photo' alt='Image'data-toggle="modal" data-target="#{{photo.id}}">
             </div>
+        
+
+        <!-- Modal -->
+        <div class="modal fade" id="{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header text-center">
+                <h5 class="modal-title" id="exampleModalLongTitle">{{photo.name}} </h5>
+                 <h5 class="modal-title">Category: {{photo.category}}</h5>
+                 <h5 class="modal-title">Location: {{photo.location}}</h5>
+            <h5 class="modal-title">Posted on: {{photo.post_date}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <img src='{{photo.image.url}}' class="img-responsive" width=100% height=100% alt="Image">
+
+            </div>
+             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 padding-2">
+                <button class="btn btn-secondary" onclick="copyToClipboard('#{{image.id}}-url')">Copy</button>
+              </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+            </div>
+            </div>
+        </div>
+        </div>
+
         {% endfor %}
 
         </div>
+    
     </div>
   
 
