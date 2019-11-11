@@ -36,6 +36,11 @@ class Image(models.Model):
         photos = cls.objects.filter(pub_date__date = date)
         return photos
     
+    @classmethod
+    def search_by_category(cls,search_term):
+        photos = cls.objects.filter(category__icontains=search_term)
+        return photos
+    
     def __str__(self):
         return self.name
     
