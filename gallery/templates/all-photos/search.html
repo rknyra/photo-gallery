@@ -15,10 +15,47 @@
 
   {% if photos %}
     {% for photo in photos %}
-      <div class="col-sm-6 col-md-3">
-          <p>{{photo.name}}</p>
-          <img src="{{photo.image.url}}" class='img-thumbnail photo'>
-      </div>
+   <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
+                <img src='{{ photo.image.url }}' class='img-thumbnail photo' alt='Image'data-toggle="modal" data-target="#{{photo.id}}">
+            </div>
+        
+
+        <!-- Modal -->
+        <div class="modal fade" id="{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="exampleModalLongTitle">{{photo.name}} </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Category: {{photo.category}}</p>
+                <p>Location: {{photo.location}}</p>
+                <p>Posted on: {{photo.post_date}}</p>
+            <img src='{{photo.image.url}}' class="img-responsive" width=100% height=100% alt="Image">
+
+            </div>
+             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 padding-2">
+                <button class="btn btn-secondary" onclick="copyToClipboard('#{{image.id}}-url')">Copy</button>
+              </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
 
     {% endfor %}
   {% endif %}
