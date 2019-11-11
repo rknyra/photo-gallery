@@ -32,9 +32,9 @@ No known bugs
 
 
 ### Support and contact details
-For pertinent comments, suggestions or questions, you may contact us at [RK Nyra](https://www.gmail.com/)
+For pertinent comments, suggestions or questions, you may contact me at [RK Nyra](https://www.gmail.com/)
 
 ### License
 License used is <a href="https://choosealicense.com/licenses/mit/">MIT License</a> <br>
 
-Copyright (c) **Secrets October 2019**
+Copyright (c) **Ma Gallarie November 2019**
