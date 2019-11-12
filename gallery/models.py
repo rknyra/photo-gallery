@@ -1,5 +1,6 @@
 from django.db import models
 import datetime as dt
+from pyuploadcare.dj.models import ImageField
 
 
 #Category Model
@@ -33,7 +34,7 @@ class Location(models.Model):
 
 #Image Model
 class Image(models.Model):
-    image = models.ImageField(upload_to='images/', default='image.png')
+    image = ImageField(blank=True, manual_crop="1920x1080")
     name = models.CharField(max_length =70)
     description = models.CharField(max_length =120)
     post_date = models.DateTimeField(auto_now_add=True)

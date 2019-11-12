@@ -16,7 +16,7 @@
   {% if photos %}
     {% for photo in photos %}
    <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                <img src='{{ photo.image.url }}' class='img-thumbnail photo' alt='Image'data-toggle="modal" data-target="#{{photo.id}}">
+                <img src='{{ photo.image.cdn_url }}' class='img-thumbnail photo' alt='Image'data-toggle="modal" data-target="#{{photo.id}}">
             </div>
         
 
@@ -32,7 +32,7 @@
             </div>
             <div class="modal-body text-center">
              
-            <img src='{{photo.image.url}}' class="img-responsive" width=100% height=100% alt="Image">
+            <img src='{{photo.image.cdn_url}}' class="img-responsive" width=100% height=100% alt="Image">
                <p>Category: {{photo.category}}</p>
                 <p>Location: {{photo.location}}</p>
                 <p>Posted on: {{photo.post_date}}</p>
@@ -42,7 +42,7 @@
                <div class='row form-group justify-content-center'>
 
                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 padding-1">
-                <input id="{{photo.id}}-url"  class="form-control input-md responsive" type="text" value="{{photo.image.url}}">
+                <input id="{{photo.id}}-url"  class="form-control input-md responsive" type="text" value="{{photo.image.cdn_url}}">
               </div>
              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 padding-1">
                 <button class="btn btn-info" onclick="copyToClipboard('#{{photo.id}}-url')">Copy</button>
