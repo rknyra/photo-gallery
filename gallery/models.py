@@ -34,7 +34,7 @@ class Location(models.Model):
 
 #Image Model
 class Image(models.Model):
-    image = ImageField(blank=True, manual_crop="1920x1080")
+    image = ImageField(blank=True, manual_crop="")
     name = models.CharField(max_length =70)
     description = models.CharField(max_length =120)
     post_date = models.DateTimeField(auto_now_add=True)
